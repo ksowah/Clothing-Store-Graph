@@ -22,7 +22,7 @@ type Product {
 }
 
 type Query {
-  getProducts(pagination: Pagination, search: Search, sort: String): [Product]
+  getProducts(pagination: Pagination, search: Search, sort: String, category: Category): [Product]
   getProduct(id: ID!): Product
   getProductsCount(search: Search): NonNegativeInt
 }

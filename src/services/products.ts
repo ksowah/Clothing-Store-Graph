@@ -34,6 +34,9 @@ export async function updateProduct(args, ctx: IAppContext) {
 export const getProducts = async (args, ctx: IAppContext) => {
   const Products = runFindQuery("Product", {
     ...args,
+    filter: {
+      ...( args.category ? { category: args.category } : {} ),
+    }
   });
   
   return Products;

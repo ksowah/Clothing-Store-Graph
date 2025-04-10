@@ -23,6 +23,8 @@ const httpServer = http.createServer(app);
             ApolloServerPluginDrainHttpServer({ httpServer }),
         ],
         introspection: true,
+        // playground is no longer supported; use Apollo Sandbox or introspection
+        
     });
 
     await mongoose.connect(config.db.uri, {

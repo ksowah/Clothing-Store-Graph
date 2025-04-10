@@ -6,7 +6,9 @@ const { default: mongoose } = require("mongoose");
 
 
 async function seedProducts() {
-  await mongoose.connect(config.db.uri);
+  await mongoose.connect(config.db.uri, {
+    dbName: config.db.database,
+  });
   console.log("Connected to MongoDB");
 
   const enrichedProducts = await Promise.all(
