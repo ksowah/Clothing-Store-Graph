@@ -1,0 +1,34 @@
+enum OrderStatus {
+  Pending
+  Accepted
+  Transit
+  Delivered
+  Cancelled
+  Completed
+}
+
+type Order {
+  _id: ID!
+  code: String
+  status: OrderStatus
+  user: User
+  products: [Product]
+  totalPrice: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Query {
+  getOrders(pagination: Pagination, search: Search, sort: String): [Order]
+  getOrder(id: ID!): Order
+  getOrdersCount(search: Search): NonNegativeInt
+}
+
+type Mutation {
+  placeOrder(products: [ID!]!, totalPrice: Float!): Order
+  updateOrder(id: ID!, products: [ID!]!, totalPrice: Float!): Order
+  cancelOrder(id: ID!): Order
+  completeOrder(id: ID!): Order
+  initiateOrderTransit(id: ID!): Order
+  deliverOrder(id: ID!): Order
+}

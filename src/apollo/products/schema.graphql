@@ -1,0 +1,50 @@
+enum Category {
+  NewArrivals
+  Cloths
+  Shoes
+  Bags
+  Electronics
+  Jewelry
+}
+
+type Product {
+  _id: ID!
+  code: String
+  name: String
+  description: String
+  images: [String]
+  previewImage: String
+  brand: String
+  category: Category
+  price: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Query {
+  getProducts(pagination: Pagination, search: Search, sort: String): [Product]
+  getProduct(id: ID!): Product
+  getProductsCount(search: Search): NonNegativeInt
+}
+
+type Mutation {
+  createProduct(
+    name: String!
+    description: String!
+    images: [String]!
+    previewImage: String!
+    brand: String!
+    category: Category!
+    price: Float!
+  ): Product
+  updateProduct(
+    id: ID!
+    name: String!
+    description: String!
+    images: [String]!
+    previewImage: String!
+    brand: String!
+    category: Category!
+    price: Float!
+  ): Product
+}

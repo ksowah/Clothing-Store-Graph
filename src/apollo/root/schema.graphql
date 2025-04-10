@@ -1,0 +1,18 @@
+type Query {
+  getRoot: String
+}
+
+input Pagination {
+  page: Int
+  pageSize: Int
+}
+
+input Search {
+  search: String
+  searchFields: [String]
+}
+
+
+type Query {
+  getRoot: String
+}
