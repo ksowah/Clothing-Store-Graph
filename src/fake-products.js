@@ -236,7 +236,7 @@ export const products = [
     images: [
       "https://cdn.thewirecutter.com/wp-content/media/2024/05/phonetripods-2048px-2407.jpg",
       "https://amateurphotographer.com/wp-content/uploads/sites/7/2024/03/Joby_gorilla_pod.jpg",
-      "https://cdn.mos.cms.futurecdn.net/7HwAw9aGwcvZGgu6vuBLQ9-1200-80.jpg"
+      "https://cdn.mos.cms.futurecdn.net/7HwAw9aGwcvZGgu6vuBLQ9-1200-80.jpg",
     ],
     previewImage:
       "https://cdn.mos.cms.futurecdn.net/7HwAw9aGwcvZGgu6vuBLQ9-1200-80.jpg",
@@ -244,23 +244,32 @@ export const products = [
     category: "Electronics",
     price: 34.99,
   },
-//   {
-//     name: "Ladies Quartz Watch",
-//     description: "Stylish analog watch for women with rose gold finish.",
-//     images: ["https://example.com/products/womenswatch.jpg"],
-//     previewImage: "https://example.com/products/womenswatch.jpg",
-//     brand: "Casio",
-//     category: "Jewelry",
-//     price: 79.99,
-//   },
-//   {
-//     name: "Canvas Messenger Bag",
-//     description: "Roomy and rugged bag with adjustable strap.",
-//     images: ["https://example.com/products/messengerbag.jpg"],
-//     previewImage: "https://example.com/products/messengerbag.jpg",
-//     brand: "Herschel",
-//     category: "Bags",
-//     price: 89.0,
-//   },
-  // Repeat similar pattern to complete 40 total
+  {
+    name: "Ladies Quartz Watch",
+    description: "Stylish analog watch for women with rose gold finish.",
+    images: [
+      "https://ae01.alicdn.com/kf/S202cce493aca4ceb87bbf1518d050048Y.jpg",
+      "https://s.alicdn.com/@sc04/kf/H661f25536d554ebf91c68a55baf155e8q.jpg_720x720q50.jpg",
+      "https://img.fruugo.com/product/6/14/767322146_max.jpg",
+    ],
+    previewImage:
+      "https://ae01.alicdn.com/kf/S202cce493aca4ceb87bbf1518d050048Y.jpg",
+    brand: "Casio",
+    category: "Jewelry",
+    price: 79.99,
+  },
+  {
+    name: "Canvas Messenger Bag",
+    description: "Roomy and rugged bag with adjustable strap.",
+    images: [
+      "https://www.vidavida.co.uk/cdn/shop/products/original_canvas-and-leather-mens-messenger-bag-tan2_900x.jpg",
+      "https://www.vidavida.co.uk/cdn/shop/products/canvas-leather-shoulder-bag-grey-tan_grande.jpg",
+      "https://s.alicdn.com/@sc04/kf/H7979883cd16d44b09d9039c56b69005dx.jpg_720x720q50.jpg"
+    ],
+    previewImage:
+      "https://www.vidavida.co.uk/cdn/shop/products/original_canvas-and-leather-mens-messenger-bag-tan2_900x.jpg",
+    brand: "Herschel",
+    category: "Bags",
+    price: 89.0,
+  },
 ];

@@ -21,7 +21,8 @@ const httpServer = http.createServer(app);
         formatError: formatError,
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
-        ]
+        ],
+        introspection: true,
     });
 
     await mongoose.connect(config.db.uri, {

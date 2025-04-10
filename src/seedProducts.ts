@@ -1,13 +1,12 @@
+import config from "config";
 import { ProductCategory } from "models/index.types";
-
-const { generateCode } = require("./utils/code.ts");
 const { products } = require("./fake-products");
 const { ProductModel } = require("./models/products/index");
 const { default: mongoose } = require("mongoose");
 
 
 async function seedProducts() {
-  await mongoose.connect("mongodb://localhost:27017/clothing-store");
+  await mongoose.connect(config.db.uri);
   console.log("Connected to MongoDB");
 
   const enrichedProducts = await Promise.all(
