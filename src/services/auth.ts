@@ -78,11 +78,11 @@ export async function _checkPassword(existingUser, password) {
 
   if (!isValidPassword) {
     // Trigger locker event here
-    existingUser.locker = {
-      tries: (existingUser.locker.tries || 0) + 1,
-      expiresAt: dayjs().add(config.auth.lockerExpiry, "milliseconds").toDate(),
-    };
-    await existingUser.save();
+    // existingUser.locker = {
+    //   tries: (existingUser.locker.tries || 0) + 1,
+    //   expiresAt: dayjs().add(config.auth.lockerExpiry, "milliseconds").toDate(),
+    // };
+    // await existingUser.save();
     throw new Error("Password is incorrect");
   }
 }
