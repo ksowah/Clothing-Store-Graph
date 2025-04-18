@@ -7,25 +7,40 @@ enum OrderStatus {
   Completed
 }
 
+type OrderItem {
+  product: Product
+  quantity: Int!
+}
+
 type Order {
   _id: ID!
   code: String
   status: OrderStatus
   user: User
-  products: [Product]
+  items: [OrderItem]
   totalPrice: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
 
+input OrderInput {
+  items: [OrderItemInput!]!
+  totalPrice: Float!
+}
+
+input OrderItemInput {
+  product: ID!
+  quantity: Int!
+}
+
 type Query {
-  getOrders(pagination: Pagination, search: Search, sort: String): [Order]
+  getOrders(pagination: Pagination, search: Search, sort: String, status: OrderStatus): [Order]
   getOrder(id: ID!): Order
   getOrdersCount(search: Search): NonNegativeInt
 }
 
 type Mutation {
-  placeOrder(products: [ID!]!, totalPrice: Float!): Order
+  placeOrder(input: OrderInput!): Order
   updateOrder(id: ID!, products: [ID!]!, totalPrice: Float!): Order
   cancelOrder(id: ID!): Order
   completeOrder(id: ID!): Order

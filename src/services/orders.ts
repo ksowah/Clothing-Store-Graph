@@ -2,10 +2,13 @@ import { IAppContext } from "context";
 import { OrderModel } from "../models";
 import { generateCode, runCountQuery, runFindQuery, runGetId } from "../utils";
 
+
 export async function placeOrder(args, ctx: IAppContext) {
+  const {items, totalPrice} = args.input
   try {
     const newOrder = await OrderModel.create({
-      ...args,
+      items,
+      totalPrice,
       status: "Accepted",
       user: ctx.user,
       code: await generateCode("Order"),
@@ -97,6 +100,7 @@ export const getOrders = async (args, ctx: IAppContext) => {
   const Orders = runFindQuery("Order", {
     filter: {
       user: ctx.user,
+      ...( args.status ? { status: args.status } : {} ),
     },
     ...args,
   });

@@ -1,12 +1,14 @@
 import services from "../../services";
 
 const orderResolvers = {
+  OrderItem: {
+    product: (orderItem, _, ctx) => {
+      return services.products.getProductById(orderItem.product);
+    },
+  },
   Order: {
     user: (order, _, ctx) => {
       return services.users.getUserById(order.user);
-    },
-    products: (order, _, ctx) => {
-      return services.products.getProductsByIds(order.products);
     },
   },
   Query: {

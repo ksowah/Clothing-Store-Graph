@@ -5,7 +5,10 @@ export type OrderStatus = typeof OrderStatuses[number];
 
 export interface IOrder {
   code: string;
-  products: Types.ObjectId[];
+  items: {
+    product: Types.ObjectId;
+    quantity: number;
+  }[];
   user: Types.ObjectId;
   status: OrderStatus;
   totalPrice: number;
