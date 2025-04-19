@@ -7,7 +7,7 @@ import ms from "ms";
 import { IAppContext } from "../context";
 import bcrypt from "bcrypt";
 dayjs.extend(relativeTime);
-import { generateCode } from "../utils";
+import { generateCode, runGetId } from "../utils";
 
 export async function registerUser(args, ctx: IAppContext) {
   try {
@@ -39,6 +39,15 @@ export async function loginUser(args, ctx: IAppContext) {
     };
   } catch (err) {
     throw err;
+  }
+}
+
+export async function getCurrentUser(args, ctx: IAppContext) {
+  try {
+    return runGetId("User", ctx.user?.toString());
+  } catch (err) {
+    console.log(err);
+    return err;
   }
 }
 

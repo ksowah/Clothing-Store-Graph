@@ -12,6 +12,10 @@ input RegisterUserInput {
     phoneNumber: String!
 }
 
+extend type Query {
+  getCurrentUser: User
+}
+
 type Mutation {
   loginUser(emailAddress: String!, password: String!): LoginResponse
   registerUser(input: RegisterUserInput!): User
